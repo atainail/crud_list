@@ -2,17 +2,14 @@ let add = document.querySelector(".button");
 let toDoList = document.querySelector("i");
 let input = document.querySelector(".form-control");
 
-input.value = " ";
-
 add.addEventListener('click', function(e) {
-    
     let today = new Date();
     let date = (today.getMonth() + 1) + "-" + today.getDate() + '-' +today.getFullYear();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date + " " + time;
     let errorMessage = document.querySelector(".error");
 
-    if(input.value == " "){
+    if(input.value == " " || !input.value.replace(/\s/g, '').length){
         errorMessage.innerText = `Cannot be left blank`;  
     } else {
         errorMessage.innerText = " ";  
